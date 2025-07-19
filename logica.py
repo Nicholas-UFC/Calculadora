@@ -1,57 +1,56 @@
 import math
-from decimal import Decimal
 
-# Função para calcular uma expressão matemática
-def calcular_expressao(expressao) -> str:
+def obter_pi() -> str:
+    """Retorna o valor da constante Pi como uma string."""
+    return str(math.pi)
+
+def obter_euler() -> str:
+    """Retorna o valor da constante de Euler (e) como uma string."""
+    return str(math.e)
+
+def calcular_raiz_quadrada(numero_str: str) -> str:
+    """
+    Calcula a raiz quadrada de um número.
+    Recebe o número como uma string (vindo do visor) e retorna o resultado como string.
+    """
+    try:
+        return str(math.sqrt(float(numero_str)))
+    except (ValueError, TypeError):
+        return "Erro"
+
+def calcular_ln(numero_str: str) -> str:
+    """
+    Calcula o logaritmo natural (base e) de um número.
+    """
+    try:
+        # Converte a string para float e calcula o logaritmo natural.
+        return str(math.log(float(numero_str)))
+    except (ValueError, TypeError):
+        # Captura erros se a entrada não for um número válido ou for <= 0.
+        return "Erro"
+
+def calcular_log10(numero_str: str) -> str:
+    """
+    Calcula o logaritmo na base 10 de um número.
+    """
+    try:
+        # A função 'math.log' aceita um segundo argumento para a base.
+        # Aqui, especificamos a base 10.
+        return str(math.log(float(numero_str), 10))
+    except (ValueError, TypeError):
+        # Captura erros se a entrada não for um número válido ou for <= 0.
+        return "Erro"
+
+def calcular_expressao(expressao: str) -> str:
+    """
+    Calcula o resultado de uma expressão matemática completa (ex: "5*2+10").
+    Esta é a função principal chamada quando o botão '=' é pressionado.
+    """
+    # Verificação inicial: se a expressão estiver vazia, retorna "Erro"
+    if not expressao:
+        return "Erro"
+    
     try:
         return str(eval(expressao))
     except Exception:
-        return "ERRO"
-
-# Função para adicionar dois números
-def adicionar(a, b) -> Decimal:
-    return a + b
-
-# Função para subtrair dois números
-def subtrair(a,b) -> Decimal:
-    return a - b
-
-# Função para multiplicar dois números
-def multiplicar(a,b) -> Decimal:
-    return a * b
-
-# Função para dividir dois números
-def dividir(a,b) -> Decimal:
-    if b == 0:
-        raise ZeroDivisionError("Erro! Não pode dividir um numero por zero")
-    return a / b
-       
-# Função para calcular a raiz quadrada de um número
-def raiz_quadrada(a) -> Decimal:
-    return Decimal(math.sqrt(Decimal(a)))
-
-# Função para calcular a potência de um número
-def potencial(a,b) -> Decimal:
-    return Decimal(a) ** Decimal(b) 
-
-# Função para calcular o logaritmo natural de um número
-def logaritmo_natural(a) -> Decimal:
-    try:
-        return Decimal(math.log(Decimal(a)))
-    except (ValueError, TypeError):
-        return Decimal('NaN')
-    
-# Função para calcular o logaritmo 10 de um número
-def logaritmo_10(a) -> Decimal:
-    try:
-        return Decimal(math.log(Decimal(a), 10))
-    except (ValueError, TypeError):
-        return Decimal('NaN')
-
-# Função para retornar o valor de Euler (e)
-def euler() -> Decimal:
-    return Decimal(math.e)
-
-# Função para retornar o valor de pi
-def valor_de_pi() -> Decimal:
-    return Decimal(math.pi)
+        return "Erro"
