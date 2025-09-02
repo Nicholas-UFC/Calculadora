@@ -1,12 +1,15 @@
 import math
 
+
 def obter_pi() -> str:
     """Retorna o valor da constante Pi como uma string."""
     return str(math.pi)
 
+
 def obter_euler() -> str:
     """Retorna o valor da constante de Euler (e) como uma string."""
     return str(math.e)
+
 
 def calcular_raiz_quadrada(numero_str: str) -> str:
     """
@@ -18,6 +21,7 @@ def calcular_raiz_quadrada(numero_str: str) -> str:
     except (ValueError, TypeError):
         return "Erro"
 
+
 def calcular_ln(numero_str: str) -> str:
     """
     Calcula o logaritmo natural (base e) de um número.
@@ -28,6 +32,7 @@ def calcular_ln(numero_str: str) -> str:
     except (ValueError, TypeError):
         # Captura erros se a entrada não for um número válido ou for <= 0.
         return "Erro"
+
 
 def calcular_log10(numero_str: str) -> str:
     """
@@ -41,6 +46,7 @@ def calcular_log10(numero_str: str) -> str:
         # Captura erros se a entrada não for um número válido ou for <= 0.
         return "Erro"
 
+
 def calcular_expressao(expressao: str) -> str:
     """
     Calcula o resultado de uma expressão matemática completa (ex: "5*2+10").
@@ -49,7 +55,7 @@ def calcular_expressao(expressao: str) -> str:
     # Verificação inicial: se a expressão estiver vazia, retorna "Erro"
     if not expressao:
         return "Erro"
-    
+
     try:
         return str(eval(expressao))
     except Exception:

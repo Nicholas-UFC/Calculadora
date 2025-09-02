@@ -1,7 +1,9 @@
-from typing import Dict, Callable
-import tkinter as tk
 import threading
+import tkinter as tk
+from typing import Callable, Dict
+
 import logica
+
 
 class Calculadora(tk.Tk):
     """Cria a interface gráfica e gerencia as interações da calculadora."""
